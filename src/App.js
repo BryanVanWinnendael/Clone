@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
+import Menu from './components/Menu/Menu';
+import Main from './components/Main/Main';
+import { useAuth} from './contexts/AuthContext';
+import {usetheme} from "./util/theme";
+
 
 function App() {
+  
+  
+  const {currentUser} = useAuth();
+  usetheme.change()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+      <div className="App">
+     {currentUser &&  <Main/>}
+     {!currentUser && <Menu/>}
+     
+      </div>
+       
+ 
   );
 }
 

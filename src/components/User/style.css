@@ -1,0 +1,351 @@
+.settingsimg {
+  width: 30px;
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  cursor: pointer;
+  filter: var(--icon-color);
+}
+
+.profileimg {
+  top: 100px;
+  left: 40px;
+  position: absolute;
+  height: 100px;
+  max-width: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.popupSettings {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.blurSettings {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.158);
+  z-index: 11;
+  animation: blurscreen 1s;
+}
+
+.classsettingup {
+  animation: settingscreenup 1s;
+}
+
+.classsettingdown {
+  animation: settingscreendown 1s;
+}
+
+.settingcard {
+  z-index: 11;
+  bottom: 0px;
+  position: absolute;
+  border-radius: 15px 15px 0 0;
+  height: 90%;
+  width: 70%;
+  box-shadow: 5px 5px 8px #88888880;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+@keyframes settingscreenup {
+  0% {
+    bottom: -700px;
+  }
+  100% {
+    bottom: 0px;
+  }
+}
+
+@keyframes settingscreendown {
+  0% {
+    bottom: 0px;
+  }
+  100% {
+    bottom: -700px;
+  }
+}
+
+/* settings */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  margin-left: 10px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 19px;
+  width: 20px;
+  left: 2px;
+  bottom: 3px;
+  background-color: var(--primary-color);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #8c56d8;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #8c56d8;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.logoutbutton {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 100px;
+  height: 31px;
+  border: none;
+  color: white;
+  background-color: #8c56d8;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 5px 5px 8px #88888880;
+  transition-duration: 0.4s;
+  font-weight: bolder;
+}
+
+.logoutbutton:hover {
+  transform: scale(1.1);
+}
+
+.settingsList {
+  display: flex;
+  flex-direction: column;
+  color: var(--secondary-color);
+  margin: 20px;
+}
+
+.profileP {
+  border-top: 1px solid rgba(128, 128, 128, 0.425);
+  cursor: pointer;
+  display: flex;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  align-items: flex-start;
+  font-weight: bolder;
+  color: var(--secondary-color);
+}
+
+.passwordP {
+  border-top: 1px solid rgba(128, 128, 128, 0.425);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.425);
+  cursor: pointer;
+  display: flex;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  align-items: flex-start;
+  font-weight: bolder;
+}
+
+.passwordform {
+  display: flex;
+  flex-direction: column;
+}
+
+.passwordform input {
+  width: 180px;
+  height: 25px;
+  border: none;
+  border-bottom: 2px solid #8c56d8;
+  display: inline-block;
+  margin: 10px;
+}
+
+.passwordform input:focus {
+  outline: none;
+}
+
+.passwordform button {
+  width: 188px;
+  height: 31px;
+  border: none;
+  color: white;
+  background-color: #8c56d8;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 5px 5px 8px #88888880;
+  transition-duration: 0.4s;
+}
+
+.passwordform button:hover {
+  transform: scale(1.1);
+}
+
+.emailP {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.425);
+  cursor: pointer;
+  display: flex;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  align-items: flex-start;
+  font-weight: bolder;
+}
+
+.darkmodeP {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.425);
+  display: flex;
+  min-height: 60px;
+  transition-duration: 0.4s;
+  height: auto;
+  align-items: center;
+  font-weight: bolder;
+}
+
+.settingsicon {
+  margin-right: 10px;
+  height: 30px;
+  filter: var(--icon-color);
+}
+
+.profilebox {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color);
+}
+
+.classprofileup {
+  animation: profilescreennup 1s;
+}
+
+.classprofiledown {
+  animation: profilescreendown 1s;
+}
+
+.profileimgshow {
+  height: 200px;
+  max-width: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profileform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profileform input[type="file"] {
+  margin: 10px;
+}
+
+.profileform button {
+  width: 188px;
+  height: 31px;
+  border: none;
+  color: white;
+  background-color: #8c56d8;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 5px 5px 8px #88888880;
+  transition-duration: 0.4s;
+}
+
+.profileform button:hover {
+  transform: scale(1.1);
+}
+
+.uploadButton {
+  width: 188px;
+  height: 31px;
+  border: none;
+  color: white;
+  background-color: #8c56d8;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 5px 5px 8px #88888880;
+  transition-duration: 0.4s;
+}
+
+.uploadButton:hover {
+  transform: scale(1.1);
+}
+
+@keyframes profilescreendown {
+  0% {
+    bottom: 0px;
+  }
+  100% {
+    bottom: -100%;
+  }
+}
+
+@keyframes profilescreennup {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: 0px;
+  }
+}
+
+@media (max-width: 500px) {
+  .settingcard {
+    width: 100%;
+    height: 100%;
+  }
+}

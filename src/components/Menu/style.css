@@ -1,0 +1,166 @@
+.menudiv {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardMenu {
+  height: 500px;
+  width: 400px;
+  background-color: var(--primary-color);
+  border-radius: 15px;
+  box-shadow: 5px 5px 8px #888888;
+  color: var(--secondary-color);
+}
+
+.imagemenu {
+  height: 250px;
+}
+
+.bottomlogin button {
+  width: 120px;
+  height: 30px;
+  border: 2px solid #8c56d8;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 5px 5px 8px #88888880;
+  transition-duration: 0.4s;
+}
+.bottomlogin button:hover {
+  transform: scale(1.1);
+  color: white;
+  background-color: #8c56d8;
+}
+
+/* login */
+
+.blur {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.158);
+  z-index: 1;
+  animation: blurscreen 1s;
+}
+
+.cancelimg {
+  cursor: pointer;
+  height: 20px;
+  position: absolute;
+  right: 15px;
+  filter: var(--icon-color);
+  top: 15px;
+}
+
+.popuplogin {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.logincard {
+  color: var(--secondary-color);
+  z-index: 3;
+  bottom: 0px;
+  position: absolute;
+  border-radius: 15px 15px 0 0;
+  height: 400px;
+  width: 400px;
+  box-shadow: 5px 5px 8px #88888880;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.classloginup {
+  animation: loginscreenup 1s;
+}
+
+.classlogindown {
+  animation: loginscreendown 1s;
+}
+
+.loginform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginform input {
+  width: 180px;
+  height: 25px;
+  border: none;
+  border-bottom: 2px solid #8c56d8;
+  display: inline-block;
+  margin: 10px;
+}
+
+.loginform input:focus {
+  outline: none;
+}
+
+.loginform button {
+  width: 188px;
+  height: 31px;
+  border: none;
+  color: white;
+  background-color: #8c56d8;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 5px 5px 8px #88888880;
+  transition-duration: 0.4s;
+}
+
+.loginform button:hover {
+  transform: scale(1.1);
+}
+
+@keyframes loginscreenup {
+  0% {
+    bottom: -700px;
+  }
+  100% {
+    bottom: 0px;
+  }
+}
+
+@keyframes loginscreendown {
+  0% {
+    bottom: 0px;
+  }
+  100% {
+    bottom: -700px;
+  }
+}
+
+@keyframes blurscreen {
+  0% {
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -o-filter: blur(0px);
+    -ms-filter: blur(0px);
+    filter: blur(0px);
+    background-color: transparent;
+  }
+  100% {
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.158);
+  }
+}

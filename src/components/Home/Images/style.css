@@ -1,0 +1,40 @@
+.ImagesList {
+  min-height: 100vh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 100px;
+}
+.pictureToLoad {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.ImageBox {
+  width: auto;
+  max-width: 500px;
+  background-color: var(--primary-color);
+  border-radius: 15px;
+  box-shadow: 5px 4px 8px 5px rgb(0 0 0 / 20%);
+  padding-top: auto;
+  padding-bottom: 50px;
+  margin: 30px;
+  text-align: left;
+  color: var(--secondary-color);
+}
+
+.displayUsername {
+  margin: 10px;
+  font-weight: bolder;
+  font-size: large;
+}
+
+.profileimgOnBox {
+  height: 50px;
+  max-width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
