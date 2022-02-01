@@ -8,7 +8,7 @@ function HeaderClone({param}) {
     return (
         <header>
             {param === 'user' && ( <p>{currentUser.displayName}</p>)}
-            {param != 'user' && ( <p>Clne</p>)}
+            {param !== 'user' && ( <p>Clne</p>)}
         
         </header>
     )

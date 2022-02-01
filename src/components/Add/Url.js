@@ -9,9 +9,9 @@ export default class Url extends React.Component {
         }
     }
 
-   
 
     setUrl(params) {
+        
         this.state.url = params;
     }
 

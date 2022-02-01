@@ -14,7 +14,7 @@ export default function PreviewAdd() {
   
         <div className="prebox">
         <div className="previewAdd3">
-            <img src={useUrl.getUrl()} className="previewAddimg" />
+            <img src={useUrl.getUrl()} className="previewAddimg" alt="image to upload"/>
         </div>
         </div>
    

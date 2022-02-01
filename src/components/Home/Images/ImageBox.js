@@ -21,14 +21,14 @@ export default function ImageBox({imageToShow}) {
                 margin:"10px"
             }}>
         
-            {profileImage && <img src={profileImage} className="profileimgOnBox" />}
+            {profileImage && <img src={profileImage} className="profileimgOnBox" alt="image"/>}
 
-            {!profileImage && <img src={defaultimg} className="profileimgOnBox" />}
+            {!profileImage && <img src={defaultimg} className="profileimgOnBox" alt="image" />}
 
             <p className="displayUsername">{imageToShow.username}</p>
             </div>
            
-            {imageToShow && <img src={imageToShow.image} className="pictureToLoad" id={imageToShow.username}/>}
+            {imageToShow && <img src={imageToShow.image} className="pictureToLoad" id={imageToShow.username} id={imageToShow.id} alt="image"/>}
         </div>
     )
 }

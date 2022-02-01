@@ -8,21 +8,16 @@ export default function ProfileImage() {
  
     const profileimageRef = useRef();
     const [progress, setProgress] = useState(false);
-   
+    const [upload, setUpload] = useState(false);
     const [profileimageupload,setProfileimageupload] =  useState('');
     const [url, setUrl] = useState(getProfileImage());
     var fileuploadImage;
+
     async function handleSubmitProfile(e){   
         e.preventDefault()
         const uploadTask = storage.ref(`ProfileImages/${currentUser.uid}/profileImage`).put(profileimageupload);
         uploadTask.on(
           "state_changed",
-          snapshot => {
-            const progress = Math.round(
-              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-            );
-            
-          },
           error => {
             console.log(error);
           },
@@ -52,7 +47,7 @@ export default function ProfileImage() {
         reader = new FileReader();
         reader.onload = function () {
             setUrl(reader.result)
-
+            setUpload(true)
         }
         reader.readAsDataURL(fileuploadImage)
      
@@ -67,6 +62,7 @@ export default function ProfileImage() {
             alignItems:"center",
             justifyContent:"center"
         }}>
+        
             {progress && (
                 <p style={{
                     color:'#69aa5e'
@@ -74,18 +70,28 @@ export default function ProfileImage() {
             )}
             
             {url && (
-                <img src={url} className="profileimgshow" />
+                <img src={url} className="profileimgshow" alt="image"/>
             )}
              {!url && (
-                <img src={defaultimg} className="profileimgshow" />
+                <img src={defaultimg} className="profileimgshow" alt="image"/>
             )}
          
             <form className="profileform" onSubmit={handleSubmitProfile}  >
-                    <input style={{
-                        width:"100%",
-                        border:"none"
-                    }} type="file"  placeholder="new password" ref={profileimageRef} onChange={preview}></input>
-                    <button type="submit">Change Profile Image</button>
+              <label for="file-upload" class="custom-file-upload">
+                Choose image
+              </label>
+              <input style={{
+                  width:"100%",
+                  border:"none"
+              }} type="file"  placeholder="new password"  onChange={preview}  id="file-upload"></input>
+
+              <input style={{
+                  width:"100%",
+                  border:"none"
+              }} type="file"  placeholder="new password" ref={profileimageRef} onChange={preview}></input>
+              {upload && (
+                <button type="submit">Change Profile Image</button>
+              )}
             </form>
           
 

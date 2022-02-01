@@ -4,7 +4,6 @@ import {useAuth} from "../../contexts/AuthContext";
 import './style.css';
 import {useActive} from "../nav/Active";
 import {useUrl} from "./Url";
-import {useNav} from "../nav/Nav";
 
 export default function Add(props) {
     const {currentUser,getProfileImage} = useAuth();
@@ -21,12 +20,6 @@ export default function Add(props) {
         const uploadTask = storage.ref(`images/${currentUser.uid}-${(new Date()).getTime()}`).put(addimageupload);
         uploadTask.on(
           "state_changed",
-          snapshot => {
-            const progress = Math.round(
-              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-            );
-            
-          },
           error => {
             console.log(error);
           }
@@ -90,7 +83,7 @@ export default function Add(props) {
        <div className="divAdd">
         {url && (
           <div className={classPreview}>
-            <img src={url} className="previewAddimg" />
+            <img src={url} className="previewAddimg" alt="image to upload" />
           </div>
         )}
         

@@ -1,6 +1,5 @@
 import React, { useState ,useRef} from "react";
 import cancelimg from "./img/cancel.svg";
-import CheckboxSettings from "./CheckboxSettings";
 import {useAuth} from "../../contexts/AuthContext";
 import passimg from "./img/key.png"
 import emailimg from "./img/email.png"
@@ -16,7 +15,7 @@ function Settings(props){
     const [classpopupprofile, setclasspopupprofile] = useState("classprofileup profilebox");
 
     const [theme, setTheme] = useState(localStorage.getItem("theme"));
-    const {logout,updatePassword,updateEmail,setProfileImage} = useAuth();
+    const {logout,updatePassword,updateEmail} = useAuth();
 
     const [showPassword,setshowPassword] = useState(false)
     const [showEmail,setshowEmail] = useState(false)
@@ -293,9 +292,9 @@ function Settings(props){
                     }}>Email changed successfully</p>}
                 
                     <form className="passwordform" onSubmit={handleSubmitEmail}  >
-                    <input type="text"  placeholder="new email" ref={newemailRef}
+                    <input type="email"  placeholder="new email" ref={newemailRef}
                     ></input>
-                    <input type="text"  placeholder="confirm new email" ref={confirmnewemailRef}
+                    <input type="email"  placeholder="confirm new email" ref={confirmnewemailRef}
                     ></input>
                     <button type="submit" disabled={loadingMail}>Change email</button>
                     </form>

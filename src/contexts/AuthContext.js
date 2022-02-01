@@ -1,5 +1,5 @@
 import React, { useContext,useState,useEffect  } from "react";
-import { auth ,dbn,storage} from "../util/firebaseapp"
+import { auth ,dbn,storage,db} from "../util/firebaseapp"
 
 
 const AuthContext = React.createContext();
@@ -16,6 +16,35 @@ export function AuthProvider({children}) {
     // const [currentdisplayname,setCurrentdisplayname] = useState();
     
     const [loading , setLoading] = useState(true)
+
+    async function removePhoto(url){
+
+        const refImages = db.ref('images');
+        refImages.on('value', (snapshot) => {
+            var data = snapshot.val();
+        
+            for (var i in data) {
+               
+                if(data[i].image === url){
+                    console.log(i)
+                    
+                    const image = db.ref('images/' + i)
+                    console.log(image)
+
+                    image.remove().then(() =>{
+                        console.log("removed")
+                    }).catch(()=>{
+                        console.log("errpr")
+                    })
+                }
+                
+            }
+        }, (errorObject) => {
+            console.log('The read failed: ' + errorObject.name);
+        });
+
+        console.log()
+    }
 
     async function signup(email,password,username){
         // setCurrentdisplayname(username)
@@ -71,6 +100,8 @@ export function AuthProvider({children}) {
 
     function resetPassword(email) {
         try{
+            console.log(email)
+
             return auth.sendPasswordResetEmail(email);
         }
         catch(e){
@@ -83,16 +114,11 @@ export function AuthProvider({children}) {
     }
 
     async function getAllProfileImageById(id){
-        
-      
-        
         const ProfileImagesStorage =  await storage
         .ref(`ProfileImages/${id}`)
         .child("profileImage")
         .getDownloadURL()
-      
        
-        
         return ProfileImagesStorage
     }
 
@@ -146,7 +172,8 @@ export function AuthProvider({children}) {
         setProfileImage,
         setName,
         getNames,
-        getAllProfileImageById
+        getAllProfileImageById,
+        removePhoto
         
         
     };

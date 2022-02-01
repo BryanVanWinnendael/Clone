@@ -1,5 +1,4 @@
 import React, { useState,useRef } from "react";
-import cancelimg from "./img/cancel.svg"
 import {useAuth} from "../../contexts/AuthContext"
 
 
@@ -10,11 +9,10 @@ function Register(props) {
     const passwordRef = useRef();
     const confirmpasswordRef = useRef();
     const [error, setError] = useState('');    
-    const {signup,setName,currentUser,getNames} = useAuth();
+    const {signup,getNames} = useAuth();
     const [loading, setLoading] = useState(false);
     
 
-    const [classpopup, setclasspopup] = useState("classloginup logincard");
 
     function validateEmail(email) {
         const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -71,21 +69,11 @@ function Register(props) {
         setLoading(false)
     }
 
-   function menudown(){
-    setError('');
-    setclasspopup("classlogindown logincard");
-    setTimeout(() => {props.setTrigger(false);
-        setclasspopup("classloginup logincard");}, 400)
-   }
+ 
 
 
-    return (props.trigger)? (
-        <div className="popuplogin">
-            <div className="blur"/>
-            <div className={classpopup}>
-            <img src={cancelimg} className="cancelimg" onClick={ menudown }  />
-            <p><b>Register now</b></p>
-            
+    return (
+        <div >
             {error && <p style={{
                 color:'#A71313'
             }}>{error}</p>}
@@ -97,9 +85,8 @@ function Register(props) {
                 <input type="password"  placeholder="Confirm Password" ref={confirmpasswordRef}></input>
                 <button type="submit" disabled={loading}>Register</button>
             </form>
-            </div>
         </div>
-    ) : "";
+    ) 
 }
 
 export default Register

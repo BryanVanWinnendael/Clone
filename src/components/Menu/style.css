@@ -7,11 +7,15 @@
 }
 
 .cardMenu {
-  height: 500px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-height: 600px;
+  height: 100%;
   width: 400px;
   background-color: var(--primary-color);
   border-radius: 15px;
-  box-shadow: 5px 5px 8px #888888;
+  box-shadow: 5px 4px 8px 5px rgb(0 0 0 / 20%);
   color: var(--secondary-color);
 }
 
@@ -27,7 +31,6 @@
   cursor: pointer;
   border-radius: 5px;
   margin: 10px;
-  box-shadow: 5px 5px 8px #88888880;
   transition-duration: 0.4s;
 }
 .bottomlogin button:hover {
@@ -76,20 +79,12 @@
   border-radius: 15px 15px 0 0;
   height: 400px;
   width: 400px;
-  box-shadow: 5px 5px 8px #88888880;
+  box-shadow: 5px 4px 8px 5px rgb(0 0 0 / 20%);
   background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-}
-
-.classloginup {
-  animation: loginscreenup 1s;
-}
-
-.classlogindown {
-  animation: loginscreendown 1s;
 }
 
 .loginform {
@@ -99,6 +94,8 @@
 }
 
 .loginform input {
+  color: var(--text-color);
+  background-color: transparent;
   width: 180px;
   height: 25px;
   border: none;
@@ -120,47 +117,14 @@
   cursor: pointer;
   border-radius: 5px;
   margin: 10px;
-  box-shadow: 5px 5px 8px #88888880;
   transition-duration: 0.4s;
 }
 
-.loginform button:hover {
-  transform: scale(1.1);
-}
-
-@keyframes loginscreenup {
-  0% {
-    bottom: -700px;
-  }
-  100% {
-    bottom: 0px;
-  }
-}
-
-@keyframes loginscreendown {
-  0% {
-    bottom: 0px;
-  }
-  100% {
-    bottom: -700px;
-  }
-}
-
-@keyframes blurscreen {
-  0% {
-    -webkit-filter: blur(0px);
-    -moz-filter: blur(0px);
-    -o-filter: blur(0px);
-    -ms-filter: blur(0px);
-    filter: blur(0px);
-    background-color: transparent;
-  }
-  100% {
-    -webkit-filter: blur(5px);
-    -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-    -ms-filter: blur(5px);
-    filter: blur(5px);
-    background-color: rgba(0, 0, 0, 0.158);
+@media (max-width: 640px) {
+  .cardMenu {
+    max-height: 100%;
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
   }
 }
