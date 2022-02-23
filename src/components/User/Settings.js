@@ -64,7 +64,7 @@ function Settings(props){
 
     function changeTheme(){
        
-        if(theme == "darkmode"){
+        if(theme === "darkmode"){
             localStorage.setItem("theme","lightmode")
             setTheme("lightmode")
         }
@@ -89,7 +89,7 @@ function Settings(props){
     async function handleSubmitPassword(e){        
         e.preventDefault()
 
-        if(newpasswordRef.current.value != confirmnewpasswordRef.current.value){
+        if(newpasswordRef.current.value !== confirmnewpasswordRef.current.value){
             return setError('Password does not match')
         }
 
@@ -119,7 +119,7 @@ function Settings(props){
     async function handleSubmitEmail(e){        
         e.preventDefault()
 
-        if(newemailRef.current.value != confirmnewemailRef.current.value){
+        if(newemailRef.current.value !== confirmnewemailRef.current.value){
             return setErrorMail('Email does not match')
         }
 
@@ -307,7 +307,7 @@ function Settings(props){
             <label>Darkmode:</label>
             <label class="switch">
             <input type="checkbox" defaultChecked={theme == "darkmode"} onChange={changeTheme} />
-            <span class="slider round" ></span>
+            <span className="slider round" ></span>
             </label>
             </div>
 

@@ -11,6 +11,7 @@ function User() {
     const [buttonPopupSettings, setbuttonPopupSettings] = useState(false);
     const {getProfileImage} = useAuth();
     const profileImg =  getProfileImage()
+    console.log(profileImg)
     const [imagesToLoad, setImagesToLoad] = useState();
     const {currentUser} = useAuth();
  
