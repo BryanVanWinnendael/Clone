@@ -4,9 +4,10 @@ nav {
   width: 100%;
   font-size: x-large;
   height: 70px;
-
+  display: flex;
+  justify-content: space-around;
   background-color: var(--primary-color);
-  z-index: 10;
+  z-index: 99990;
   box-shadow: 2px 2px 7px 01px rgba(0, 0, 0, 0.8);
 }
 
@@ -47,4 +48,9 @@ ul {
 
 .active img {
   filter: var(--nav-color-active);
+}
+
+nav button {
+  background-color: transparent;
+  border: none;
 }

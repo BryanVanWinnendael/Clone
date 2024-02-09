@@ -1,25 +1,19 @@
-import React from "react";
-import {useUrl} from "./Url";
+import React from "react"
+import { useUrl } from "../../contexts/UrlContext"
 
-import './style.css';
+import "./style.css"
 
 export default function PreviewAdd() {
-
-   
-    return (
-        <div>
-        {
-        useUrl.getUrl() &&(
-  
-  
+  const { url } = useUrl()
+  return (
+    <div>
+      {url && (
         <div className="prebox">
-        <div className="previewAdd3">
-            <img src={useUrl.getUrl()} className="previewAddimg" alt="image to upload"/>
+          <div className="previewAdd3">
+            <img src={url} className="previewAddimg" alt="to upload" />
+          </div>
         </div>
-        </div>
-   
-        )
-    }
-         </div>
-    )
+      )}
+    </div>
+  )
 }

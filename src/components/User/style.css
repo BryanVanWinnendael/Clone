@@ -18,8 +18,15 @@
 }
 
 .popupSettings {
-  position: absolute;
-  bottom: 0;
+  position: fixed;
+  bottom: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.popupSettinsProfile {
+  position: fixed;
+  bottom: 20px;
   display: flex;
   justify-content: center;
 }
@@ -259,8 +266,9 @@ input:checked + .slider:before {
 }
 
 .profilebox {
-  position: absolute;
+  position: fixed;
   z-index: 100;
+  bottom: 0px;
   width: 100%;
   height: 100%;
   background-color: var(--primary-color);
